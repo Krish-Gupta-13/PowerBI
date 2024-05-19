@@ -54,5 +54,4 @@ select sum(transactions.sales_qty) from transactions inner join date on transact
 
 select * from sales.markets where markets_name="Mumbai"
 -- This query retrieves all columns from the markets table where the markets_name column is "Mumbai".
-select * from sales.customers
 
