@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 select * from customers
 -- This query fetches all the information about customers from the "sales" table.
 
@@ -54,3 +55,40 @@ select sum(transactions.sales_qty) from transactions inner join date on transact
 
 select * from sales.markets where markets_name="Mumbai"
 -- This query retrieves all columns from the markets table where the markets_name column is "Mumbai".
+=======
+select * from sales.customers
+
+select * from sales.transactions
+
+select * from sales.markets
+
+select * from sales.products
+
+select * from sales.date
+
+select count(*) from sales.transactions
+
+select count(*) from sales.customers
+
+select * from sales.transactions where market_code="Mark001"
+
+select * from sales.transactions where currency="USD"
+
+select * from sales.transactions where sales_amount=-1
+
+select distinct(sales.transactions.currency) from sales.transactions 
+
+select count(*) from sales.transactions where sales.transactions.currency="INR\r"
+
+select count(*) from sales.transactions where sales.transactions.currency="INR"
+
+select sum(transactions.sales_amount) from transactions inner join date on transactions.order_date=date where date.year=2020 and transactions.currency="INR\r" or transactions.currency="USD\r"
+
+select sum(transactions.sales_amount) from transactions inner join date on transactions.order_date=date where date.year=2019 and date.month_name="January"  and transactions.currency="INR\r" or transactions.currency="USD\r"
+
+select sum(transactions.sales_amount) from transactions inner join date on transactions.order_date=date.date where date.year=2020 and transactions.market_code="Mark002"
+
+select sum(transactions.sales_qty) from transactions inner join date on transactions.order_date=date.date where date.year=2020 and transactions.market_code="Mark002"
+
+select * from sales.markets where markets_name="Mumbai"
+>>>>>>> f9b0da1eecb6aec2f13dc6bef032e317ff17f2f7
