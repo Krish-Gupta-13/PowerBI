@@ -55,3 +55,36 @@ select sum(transactions.sales_qty) from transactions inner join date on transact
 select * from sales.markets where markets_name="Mumbai"
 -- This query retrieves all columns from the markets table where the markets_name column is "Mumbai".
 
+
+                                  ---- ALL QUERIES THAT I HAVE PERFORMED ----
+
+select * from customers;
+select * from transactions;
+select * from markets;
+select * from products;
+select * from date;
+
+select count(*) from customers;
+select distinct(customer_type) from customers;
+select count(customer_type) from customers group by customer_type;
+
+select count(*) from transactions;
+select distinct(market_code) from transactions;
+select market_code, count(*) from transactions group by market_code order by count(*) desc;
+select markets.markets_name, sum(transactions.sales_amount) from markets join transactions on markets.markets_code=transactions.market_code group by markets.markets_code order by sum(transactions.sales_amount) desc;
+select * from transactions where currency="USD";
+select * from transactions where sales_amount=-1 or sales_amount=0;
+select distinct(transactions.currency) from transactions ;
+select count(*) from transactions where transactions.currency="INR\r";
+select count(*) from transactions where transactions.currency="INR";
+select sum(transactions.sales_amount) from transactions inner join date on transactions.order_date=date where date.year=2020 and transactions.currency="INR\r" or transactions.currency="USD\r"
+select sum(transactions.sales_amount) from transactions inner join date on transactions.order_date=date where date.year=2019 and date.month_name="January"  and transactions.currency="INR\r" or transactions.currency="USD\r"
+select sum(transactions.sales_amount) from transactions inner join date on transactions.order_date=date.date where date.year=2020 and transactions.market_code="Mark002";
+select sum(transactions.sales_qty) from transactions inner join date on transactions.order_date=date.date where date.year=2020 and transactions.market_code="Mark002";
+select * from transactions where market_code="Mark001";
+select count(*) from transactions where market_code="Mark001";
+select count(*) from transactions where sales_amount=-1 or sales_amount=0;
+
+select * from sales.markets where markets_name="Mumbai";
+select markets.zone, sum(transactions.sales_amount) from markets join transactions on markets.markets_code=transactions.market_code group by markets.zone order by sum(transactions.sales_amount) desc;
+
